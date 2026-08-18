@@ -1,0 +1,38 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- checkout: self
+  displayName: 'Checkout source code'
+
+- script: |
+    curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+    databricks version
+  displayName: 'Install Databricks CLI'
+
+- script: |
+    echo "Deploying banking notebooks to Databricks..."
+
+    databricks workspace mkdirs /Workspace/Shared/Banking-Data-Engineering
+
+    databricks workspace import-dir \
+      notebooks \
+      /Workspace/Shared/Banking-Data-Engineering \
+      --overwrite
+
+    echo "Deployment completed successfully."
+  displayName: 'Deploy notebooks to Databricks'
+  env:
+    DATABRICKS_HOST: $(DATABRICKS_HOST)
+    DATABRICKS_TOKEN: $(DATABRICKS_TOKEN)
