@@ -1,0 +1,46 @@
+# Databricks
+.databricks/
+.databrickscfg
+
+# Environment variables and secrets
+.env
+.env.*
+*.env
+*.secret
+*.secrets
+secrets/
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+
+# Local data files
+data/raw/
+data/private/
+
+# Credentials / keys
+*.pem
+*.key
+*.pfx
+*.crt
