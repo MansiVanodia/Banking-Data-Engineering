@@ -216,6 +216,31 @@ This project demonstrates practical implementation of:
 - Databricks CLI deployment
 
 ---
+## Data Quality & Validation
+
+The Silver layer applies data quality checks before data is promoted for business use.
+
+### Implemented Checks
+
+- Converted customer date of birth into a valid date format
+- Removed records with invalid or extremely old customer dates of birth
+- Filtered records with missing customer account balances
+- Filtered records with missing transaction amounts
+- Standardized the transaction amount column name
+- Removed duplicate transactions using `TransactionID`
+- Converted branch opening dates into date format
+- Removed duplicate branch records using `Branch_ID`
+
+### Validation Results
+
+The Bronze transaction table contains approximately **50,000 records** before cleansing.
+
+After Silver-layer cleaning and validation, approximately **46,503 transaction records** remained for downstream processing.
+
+The branch reference dataset contains **12 branches** and is cleaned and standardized before use in the Gold layer.
+
+These checks help ensure that downstream aggregations and Power BI reporting are based on cleaner and more reliable data.
+
 ## Power BI Dashboard
 
 The Gold-layer datasets are used for downstream analytics and visualization in Power BI.
