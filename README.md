@@ -292,7 +292,7 @@ Banking Branch Performance Dashboard
     |
     v
 Business Insights
-
+```
 ## Security
 
 Credentials and access tokens are not stored directly in the repository.
@@ -300,6 +300,7 @@ Credentials and access tokens are not stored directly in the repository.
 Databricks authentication values used by the deployment pipeline are maintained as secured Azure DevOps pipeline variables.
 
 ---
+
 ## Project Results & Key Outcomes
 
 The project successfully demonstrates an end-to-end banking data engineering and analytics workflow.
