@@ -11,6 +11,11 @@ The project also demonstrates Git-based version control and an Azure DevOps CI/C
 ---
 
 ## Architecture
+### Solution Architecture
+
+The following architecture illustrates the end-to-end flow of the banking data engineering solution, from source ingestion through the Medallion Architecture to Power BI analytics, along with the CI/CD deployment workflow.
+
+![Banking Data Engineering Architecture](docs/architecture/banking-data-engineering-architecture.png)
 
 ```text
 Banking Source Data
