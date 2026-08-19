@@ -182,15 +182,24 @@ Banking-Data-Engineering/
 ├── notebooks/
 │   ├── bronze/
 │   │   └── 01_bronze_ingestion
-│   │
 │   ├── silver/
 │   │   └── 02_bronze_to_silver
-│   │
 │   └── gold/
 │       └── 03_silver_to_gold
 │
-├── azure-pipelines.yml
+├── docs/
+│   └── architecture/
+│       └── banking-data-engineering-architecture.png
 │
+├── powerbi/
+│   └── banking-branch-performance-dashboard.png
+│
+├── sample-data/
+│   ├── sample_bank_transactions.csv
+│   └── sample_branch_reference.csv
+│
+├── .gitignore
+├── azure-pipelines.yml
 └── README.md
 ```
 
