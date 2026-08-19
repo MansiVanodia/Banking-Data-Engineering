@@ -300,6 +300,31 @@ Credentials and access tokens are not stored directly in the repository.
 Databricks authentication values used by the deployment pipeline are maintained as secured Azure DevOps pipeline variables.
 
 ---
+## Project Results & Key Outcomes
+
+The project successfully demonstrates an end-to-end banking data engineering and analytics workflow.
+
+### Key Results
+
+- Processed approximately **50,000 raw banking transaction records** in the Bronze layer.
+- Applied data cleansing, validation, duplicate handling, and business rules in the Silver layer.
+- Produced approximately **46,503 validated transaction records** for downstream processing.
+- Integrated a **12-branch reference dataset** for branch-level analytics.
+- Created business-ready Gold-layer datasets for analytical reporting.
+- Connected Gold-layer data to **Power BI** for branch performance analysis.
+- Built a Power BI dashboard displaying approximately:
+  - **17K Total Transactions**
+  - **17K Unique Customers**
+  - **24.34M Total Transaction Value**
+- Implemented Git-based source control using feature branches and pull requests.
+- Implemented an **Azure DevOps CI/CD pipeline** to automatically deploy Bronze, Silver, and Gold notebooks to the Azure Databricks workspace.
+- Successfully validated automated notebook deployment through the Databricks CLI.
+
+### Business Value
+
+The solution converts raw banking transaction data into validated and analytics-ready datasets that can support branch performance monitoring, customer analysis, transaction analysis, regional comparisons, and operational decision-making.
+
+---
 
 ## Purpose
 
