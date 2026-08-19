@@ -216,6 +216,21 @@ This project demonstrates practical implementation of:
 - Databricks CLI deployment
 
 ---
+## Sample Data
+
+This repository includes small synthetic datasets to demonstrate the structure of the source data used by the pipeline.
+
+### Included Sample Files
+
+- `sample-data/sample_bank_transactions.csv` — Sample banking transaction records
+- `sample-data/sample_branch_reference.csv` — Sample branch reference data
+
+The sample datasets contain fictional records created specifically for demonstration and portfolio purposes. They do not contain real customer or confidential banking information.
+
+The production-style pipeline processes a larger transaction dataset, while these sample files allow users to understand the expected schema and data structure without exposing the original source data.
+
+---
+
 ## Data Quality & Validation
 
 The Silver layer applies data quality checks before data is promoted for business use.
