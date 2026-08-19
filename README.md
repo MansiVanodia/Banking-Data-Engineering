@@ -211,6 +211,42 @@ This project demonstrates practical implementation of:
 - Databricks CLI deployment
 
 ---
+## Power BI Dashboard
+
+The Gold-layer datasets are used for downstream analytics and visualization in Power BI.
+
+The **Banking Branch Performance Dashboard - Canada** provides business-level insights into transaction activity, customer volume, branch performance, staff productivity, and regional transaction value.
+
+### Key Dashboard Metrics
+
+- **17K Total Transactions**
+- **17K Unique Customers**
+- **24.34M Total Transaction Value**
+- Transactions per Staff by Branch
+- Total Transactions by Branch
+- Transaction Value by Region
+- Interactive Region filtering
+
+### Dashboard Preview
+
+![Banking Branch Performance Dashboard](powerbi/banking-branch-performance-dashboard.png)
+
+### Analytics Flow
+
+```text
+Gold Layer
+    |
+    v
+Business-Ready Data
+    |
+    v
+Power BI
+    |
+    v
+Banking Branch Performance Dashboard
+    |
+    v
+Business Insights
 
 ## Security
 
