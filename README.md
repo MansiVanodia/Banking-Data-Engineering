@@ -293,6 +293,8 @@ Banking Branch Performance Dashboard
     v
 Business Insights
 ```
+---
+
 ## Security
 
 Credentials and access tokens are not stored directly in the repository.
