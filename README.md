@@ -1,20 +1,225 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Banking Data Engineering Pipeline
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Project Overview
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This project demonstrates an end-to-end banking data engineering pipeline built using Azure Databricks and PySpark.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+The solution follows the Medallion Architecture (Bronze, Silver, and Gold) to progressively ingest, clean, transform, validate, and aggregate banking transaction data.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+The project also demonstrates Git-based version control and an Azure DevOps CI/CD pipeline for automated deployment of Databricks notebooks.
+
+---
+
+## Architecture
+
+```text
+Banking Source Data
+        |
+        v
++-------------------+
+|   Bronze Layer    |
+|   Raw Ingestion   |
++-------------------+
+        |
+        v
++-------------------+
+|   Silver Layer    |
+| Clean & Transform |
+| Data Validation   |
++-------------------+
+        |
+        v
++-------------------+
+|    Gold Layer     |
+| Business Metrics  |
+|   Aggregations    |
++-------------------+
+        |
+        v
+ Analytics / Reporting
+```
+
+---
+
+## Technology Stack
+
+- Azure Databricks
+- Apache Spark / PySpark
+- Spark SQL
+- Delta Lake
+- Unity Catalog
+- Azure DevOps
+- Git / GitHub
+- Azure DevOps Pipelines
+- Databricks CLI
+- YAML
+
+---
+
+## Medallion Architecture
+
+### Bronze Layer
+
+The Bronze layer represents the raw ingestion stage of the pipeline.
+
+Responsibilities include:
+
+- Ingesting source banking data
+- Preserving raw data for traceability
+- Creating the foundation for downstream transformations
+
+Notebook:
+
+`notebooks/bronze/01_bronze_ingestion`
+
+---
+
+### Silver Layer
+
+The Silver layer transforms raw Bronze data into cleaned and validated datasets.
+
+Key processing includes:
+
+- Data cleansing
+- Standardization
+- Data type validation
+- Duplicate handling
+- Business-rule transformations
+- Data quality checks
+- Joining transaction and reference data
+
+Notebook:
+
+`notebooks/silver/02_bronze_to_silver`
+
+---
+
+### Gold Layer
+
+The Gold layer creates business-ready datasets from validated Silver data.
+
+This layer is designed for downstream analytics and reporting by applying business transformations and aggregations.
+
+Notebook:
+
+`notebooks/gold/03_silver_to_gold`
+
+---
+
+## Data Engineering Flow
+
+```text
+Bronze
+  |
+  | Raw banking transactions
+  v
+Silver
+  |
+  | Cleaned + validated + enriched data
+  v
+Gold
+  |
+  | Business-ready aggregated datasets
+  v
+Analytics
+```
+
+---
+
+## CI/CD Pipeline
+
+The repository includes an Azure DevOps CI/CD pipeline defined in:
+
+`azure-pipelines.yml`
+
+The pipeline demonstrates automated deployment of Databricks notebooks.
+
+### CI/CD Workflow
+
+```text
+Developer Changes
+       |
+       v
+Feature Branch
+       |
+       v
+Pull Request
+       |
+       v
+Main Branch
+       |
+       v
+Azure DevOps Pipeline
+       |
+       v
+Databricks CLI
+       |
+       v
+Azure Databricks Workspace
+```
+
+The pipeline:
+
+1. Checks out the source code.
+2. Installs the Databricks CLI.
+3. Authenticates to the Databricks workspace using pipeline variables.
+4. Deploys the project notebooks to Databricks.
+
+Sensitive authentication values are maintained outside the repository using secured pipeline variables.
+
+---
+
+## Repository Structure
+
+```text
+Banking-Data-Engineering/
+│
+├── notebooks/
+│   ├── bronze/
+│   │   └── 01_bronze_ingestion
+│   │
+│   ├── silver/
+│   │   └── 02_bronze_to_silver
+│   │
+│   └── gold/
+│       └── 03_silver_to_gold
+│
+├── azure-pipelines.yml
+│
+└── README.md
+```
+
+---
+
+## Key Engineering Concepts Demonstrated
+
+This project demonstrates practical implementation of:
+
+- Medallion Architecture
+- ETL/ELT data pipelines
+- PySpark transformations
+- Data cleansing and validation
+- Delta Lake tables
+- Data quality checks
+- Business-rule implementation
+- Data aggregation
+- Unity Catalog
+- Git version control
+- Feature-branch development
+- Pull requests
+- CI/CD automation
+- Databricks CLI deployment
+
+---
+
+## Security
+
+Credentials and access tokens are not stored directly in the repository.
+
+Databricks authentication values used by the deployment pipeline are maintained as secured Azure DevOps pipeline variables.
+
+---
+
+## Purpose
+
+This project was developed as a hands-on data engineering portfolio project to demonstrate the design and implementation of a modern Azure Databricks data pipeline using layered data architecture, PySpark transformations, data quality practices, Git-based development, and CI/CD automation.
